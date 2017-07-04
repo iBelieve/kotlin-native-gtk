@@ -1,2 +1,2 @@
 headers = gtk/gtk.h
-headerFilter = gtk/* gobject/* gio/*
+headerFilter = gobject/* gio/* gtk/*
