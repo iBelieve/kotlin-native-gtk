@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/binder/binder.iml" filepath="$PROJECT_DIR$/.idea/modules/binder/binder.iml" group="binder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/binder/binder_main.iml" filepath="$PROJECT_DIR$/.idea/modules/binder/binder_main.iml" group="binder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/binder/binder_test.iml" filepath="$PROJECT_DIR$/.idea/modules/binder/binder_test.iml" group="binder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlin-native-gtk.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlin-native-gtk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/native/native.iml" filepath="$PROJECT_DIR$/.idea/modules/native/native.iml" group="native" />
+    </modules>
+  </component>
+</project>

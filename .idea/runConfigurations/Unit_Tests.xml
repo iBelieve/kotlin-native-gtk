@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unit Tests" type="spek-run-configuration" factoryName="Spek" singleton="true">
+    <module name="" />
+    <option name="target" value="package" />
+    <option name="package" value="io.mspencer.gtk" />
+    <option name="vm-parameters" value="" />
+    <option name="program-parameters" value="" />
+    <option name="working-directory" value="" />
+    <option name="alternative-jre-path" value="" />
+    <option name="pass-parent-envs" value="true" />
+    <envs />
+    <method />
+  </configuration>
+</component>
