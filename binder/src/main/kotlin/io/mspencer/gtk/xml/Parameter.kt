@@ -1,5 +1,8 @@
 package io.mspencer.gtk.xml
 
+import io.mspencer.gtk.ast.KotlinType
+import io.mspencer.gtk.ast.TypeDefinition
+import io.mspencer.gtk.ast.TypedVariable
 import org.simpleframework.xml.*
 
 /**
@@ -50,7 +53,22 @@ class Parameter {
 
     @field:ElementUnion(
             Element(name = "type", type = Type::class),
-            Element(name = "array", type = Array::class),
+            Element(name = "array", type = ArrayType::class),
             Element(name = "varargs", type = Varargs::class))
     lateinit var type: AnyType
+
+    val variable by lazy {
+        when {
+            nullable && type.isCallback -> TypedVariable("null", KotlinType("Unit"), true)
+            else -> TypedVariable(name.toCamelCase(), type, nullable)
+        }
+    }
+
+    val typeDefinition by lazy {
+        TypeDefinition(type, nullable)
+    }
+
+    val definition by lazy {
+        variable.asParameter(optional).takeUnless { nullable && type.isCallback }
+    }
 }

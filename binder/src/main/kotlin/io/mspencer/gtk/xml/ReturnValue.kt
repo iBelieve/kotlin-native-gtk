@@ -1,5 +1,6 @@
 package io.mspencer.gtk.xml
 
+import io.mspencer.gtk.ast.TypeDefinition
 import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementUnion
@@ -19,6 +20,10 @@ class ReturnValue {
 
     @field:ElementUnion(
             Element(name = "type", type = Type::class),
-            Element(name = "array", type = Array::class))
-    var type: AnyType? = null
+            Element(name = "array", type = ArrayType::class))
+    lateinit var type: AnyType
+
+    val definition by lazy {
+        TypeDefinition(type, nullable)
+    }
 }

@@ -14,4 +14,6 @@ class Alias : Entry() {
 
     @field:Element
     lateinit var type: Type
+
+    override fun toString() = "${docString}typealias $name = $cType"
 }

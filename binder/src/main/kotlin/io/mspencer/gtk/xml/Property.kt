@@ -30,6 +30,6 @@ class PropertyNode : Entry() {
 
     @field:ElementUnion(
             Element(name = "type", type = Type::class),
-            Element(name = "array", type = Array::class))
+            Element(name = "array", type = ArrayType::class))
     var type: AnyType? = null
 }

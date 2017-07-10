@@ -36,4 +36,15 @@ abstract class Entry {
 
     @field:Attribute(required = false)
     var introspectable: Boolean = false
+
+    lateinit var packageName: String
+
+    open val className get() = name!!.toClassName()
+    val canonicalName get() = packageName + "." + name
+
+    val docString = ""
+
+//    val docString get() = documentation?.let {
+//        "/**\n${it.lines().map { " * $it" }.joinToString("\n")}\n */\n"
+//    } ?: ""
 }

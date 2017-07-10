@@ -1,5 +1,6 @@
 package io.mspencer.gtk.xml
 
+import io.mspencer.gtk.ast.*
 import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
@@ -32,6 +33,17 @@ class Interface : TypedEntry() {
 
     @field:ElementList(inline = true, required = false, empty = false)
     lateinit var signals: List<Signal>
+
+    val memberDefinitions by lazy {
+        val pointer = VariableDefinition("pointer", null, type = TypeDefinition(KotlinType("CPointer<$cType>"), nullable = false))
+        val members: List<Definition> = listOf(pointer) + methods.map { it.definition }
+
+        members
+    }
+
+    override val definition by lazy {
+        InterfaceDefinition(name!!, prerequisites.map { it.name }, memberDefinitions)
+    }
 }
 
 @Root(name = "prerequisite")
